@@ -1,0 +1,145 @@
+:root {
+  --bg: #229b53;
+  --panel: #ffffff;
+  --num: #e0e0e0;
+  --op: #b34e27; /* blue */
+  --ac: #ef4444; /* red */
+  --eq: #1c32ad; /* green */
+  --text: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family:
+    system-ui,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.app {
+  width: 100%;
+  max-width: 420px;
+}
+.title {
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.calculator {
+  background: var(--panel);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+.display {
+  border: 1px solid #d1d5db;
+  padding: 12px;
+  font-size: 1.6rem;
+  text-align: right;
+  border-radius: 6px;
+  background: #fff;
+  min-height: 46px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+.num-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  flex: 1;
+}
+.num-pad button {
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: var(--num);
+  cursor: pointer;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.num-pad button:active {
+  transform: translateY(1px);
+}
+
+.operators {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 110px;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+}
+.operators button {
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+.operators #btn-add,
+.operators #btn-subtract,
+.operators #btn-multiply,
+.operators #btn-divide {
+  background: var(--op);
+}
+.operators #btn-clear {
+  background: var(--ac);
+}
+.num-pad #btn-equals {
+  background: var(--eq);
+  color: white;
+}
+
+.history {
+  margin-top: 14px;
+  background: var(--panel);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ef;
+}
+.history-list {
+  max-height: 140px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.history-list .item {
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 420px) {
+  .controls {
+    flex-direction: column;
+  }
+  .operators {
+    flex-direction: row;
+    width: auto;
+  }
+  .operators button {
+    flex: 1;
+  }
+}
